@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Email List</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='javascript/my_script.js') }}">
+            $(document).ready(function(){
+                $("").___();
+            });
+        </script>
+    </head>
+    <body>
+        <div class = 'wrapper'>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class = 'success'>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h3>Email Addresses Entered: </h3>
+            <div class = 'email_list'>
+            {% for i in range(session['result']|length): %}
+                <p>{{session['result'][i]['email']}}</p>
+            {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
